@@ -1,0 +1,323 @@
+.transactiondashboardcontainer {
+    background-image: linear-gradient(to right, rgb(221, 237, 241), rgb(230, 239, 239));
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center; /* Vertically centers content */
+    padding: 40px; /* Provides more internal spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    border-radius: 10px; /* Smoothly rounded corners */
+    transition: all 0.3s ease-in-out; /* Smooth transition on hover or resize */
+  }
+
+    .img-container {
+        width: 100%;
+        height: 150px;
+        overflow: hidden; /* Hide parts of image when zoomed */
+        border-radius: 10px;
+        position: absolute; /* Allows element to be positioned anywhere */
+        top: 0; /* Aligns to top */
+        left: 0; /* Aligns to left */
+        margin: 20px; /* Optional: Adds space from top and left */
+        /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  Adds a subtle shadow */
+    }
+    
+    .img-container img {
+        width: 100%; /* Ensures the image scales properly inside the container */
+        height: 100%; /* Makes sure the image fits within the container */
+        object-fit: contain; /* Ensures the entire image is visible without cropping */
+        object-position: center; /* Centers the image inside the container */
+    }
+    
+    /* Hover effect to zoom and slightly fade the image */
+    .img-container:hover img {
+        transform: scale(1.1); /* Zoom in effect */
+        opacity: 0.9; /* Slightly reduce opacity */
+    }
+    
+    /* Add animation on load */
+    @keyframes imageFadeIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    
+    .img-container img {
+        animation: imageFadeIn 1s ease-in-out; /* Apply animation on load */
+    }
+    
+
+
+    
+
+
+      .dashboard-title:hover {
+        color: #16A085; /* Changes color on hover */
+        transform: translateY(-2px); /* Slight upward movement on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+      }
+      
+
+      .dashboard-title {
+        padding: 20px; /* Increased padding for better spacing */
+        color: #2419f0; /* Darker color for better readability */
+        background: rgba(166, 230, 244, 0.8); /* Slightly transparent white background */
+        text-align: center; /* Centers the text */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Softer, more subtle shadow for depth */
+        border-radius: 52px; /* Increased border radius for smoother corners */
+        font-family: 'Arial', sans-serif; /* Changed font for better legibility */
+        font-size: 26px; /* Increased font size for prominence */
+        font-weight: bold; /* Makes the title bold for emphasis */
+        text-transform: uppercase; /* Uppercase for a strong visual statement */
+        transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+        margin: 20px 0; /* Margin above and below the title for spacing */
+        position: relative; /* Position relative for further styling effects */
+        top: -140px;
+      }
+
+      .input-section {
+        /* border: 1px solid rgb(0, 0, 0); */
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        top: -150px;
+        position: relative
+      }
+      
+
+
+
+      .input-container {
+        background-color: rgb(180, 193, 207);
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-radius: 4px;
+        width: 20%;
+        
+        
+        
+      }
+
+      .search-input {
+        background-color: transparent;
+        outline: none;
+        border: 0;
+        font-size: 16px;
+        margin-left: 10px;
+      }
+
+
+
+    
+      
+
+      .transactions-section {
+        border: 0px solid red;
+        height: 300px;
+        overflow-y: auto;
+        padding: 20px;
+      }
+
+
+      .sold-status {
+        font-size: 20px;
+        text-align: center;
+      }
+      
+      .loading-view {
+        height: 40vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .center {
+        text-align: center;
+      }
+      .empty-view {
+        text-align: center;
+        font-family: bree serif, "Times New Roman", Times, serif;
+        padding: 20px;
+      }
+      
+      .pagination-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 3px 10px;
+      }
+      
+      .pagination-buttons button[type="button"] {
+        padding: 10px;
+        background-color: transparent;
+        border: 0;
+        outline: none;
+        cursor: pointer;
+      }
+      
+      .failure-view {
+        display: flex;
+        flex-direction: column;
+        height: 40vh;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      
+      .retry-button {
+        padding: 10px;
+        border-radius: 10px;
+        background-color: rgb(0, 204, 255);
+        cursor: pointer;
+      }
+
+
+      
+.transaction-table {
+    width: 100%; /* Makes the table responsive to the container */
+    border-collapse: collapse; /* Merges borders for a cleaner look */
+    font-family: 'Bree Serif', 'Times New Roman', Times, serif; /* Font styling */
+    border-radius: 15px; /* Slightly reduced radius for a smoother edge */
+    overflow: hidden; /* Ensures rounded corners are visible */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Adds a soft shadow for depth */
+  }
+  
+  .transaction-table th, .transaction-table td {
+    padding: 15px 20px; /* Adds padding for better spacing */
+    text-align: left; /* Aligns text to the left */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Adds a light border to each cell */
+  }
+  
+  .transaction-table th {
+    background-color: rgb(68, 130, 147); /* Header background color */
+    color: white; /* Header text color */
+    font-weight: bold; /* Makes header text bold */
+    text-transform: uppercase; /* Uppercase for header text */
+  }
+  
+  .transaction-table tr:nth-child(even) {
+    background-color: rgba(245, 245, 245, 0.7); /* Zebra striping for even rows */
+  }
+  
+  .transaction-table tr:nth-child(odd) {
+    background-color: white; /* Background color for odd rows */
+  }
+  
+  .transaction-table tr:hover {
+    background-color: rgba(94, 238, 224, 0.3); /* Changes background color on hover */
+  }
+  
+  .transaction-table caption {
+    font-size: 1.5rem; /* Caption font size */
+    margin: 10px 0; /* Margin around the caption */
+    color: rgb(17, 19, 65); /* Caption text color */
+    font-weight: bold; /* Makes caption text bold */
+  }
+  
+  @media (max-width: 768px) {
+    .transaction-table th, .transaction-table td {
+      padding: 10px; /* Reduces padding on smaller screens */
+      font-size: 0.9rem; /* Reduces font size for better fit */
+    }
+  }
+  
+
+
+
+  .category-chart-container {
+    background-image: linear-gradient(to right, rgb(118, 162, 168), rgba(154, 208, 212, 0.033));
+    border: 1px solid rgb(12, 9, 9);
+    font-family: bree serif, "Times New Roman", Times, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .chart-container {
+    background-image: linear-gradient(to right, rgb(87, 200, 242), rgb(184, 212, 234));
+    height: 300px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px 10px 10px 10px;
+    font-family: "Roboto";
+    margin: 80px;
+    padding: 10px 10px 10px 10px;
+  }
+
+
+
+  .transactions-statistics {
+    background-image: radial-gradient(to right, rgb(117, 171, 180), rgb(101, 190, 179));
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  
+  .statistics-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 500px;
+  }
+  
+  .statistics-item p {
+    padding: 0;
+  }
+  
+  .statistics-title {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  
+  
+  
+  
+  
+  .statistics-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width:100%;
+    background-image: linear-gradient(to right, rgba(127, 171, 193, 0.8), rgba(113, 192, 220, 0.8));
+    border-radius: 15px; /* Smoother rounded corners */
+    color: white;
+    padding: 20px; /* Increased padding for better spacing */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow for added depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+    max-width: 600px; /* Limit maximum width for better appearance */
+  }
+  
+  .statistics-container:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+  }
+  
+  .statistics-container h2 {
+    font-family: 'Arial', sans-serif; /* Change font for headings */
+    font-size: 2rem; /* Larger font size for prominence */
+    margin-bottom: 15px; /* Spacing below the heading */
+    text-align: center; /* Center-align the heading */
+    text-transform: uppercase; /* Uppercase letters for header */
+  }
+  
+  .statistics-container p {
+    font-family: 'Roboto', sans-serif; /* Change font for text */
+    font-size: 1rem; /* Adjust font size for body text */
+    margin: 5px 0; /* Add spacing between paragraphs */
+    line-height: 1.5; /* Better line spacing for readability */
+  }
+  
+  

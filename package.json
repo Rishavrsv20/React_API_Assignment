@@ -1,0 +1,11 @@
+{
+  "name": "roxiler-assessment",
+  "version": "1.0.0",
+  "description": "Backend Task Data Source THIRD PARTY API URL : https://s3.amazonaws.com/roxiler.com/product_transaction.json REQUEST METHOD : GET RESPONSE FORMAT : JSON",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
